@@ -1,4 +1,5 @@
 var offset = 0;
+var limit=160;
 
 const viewData = (records) => {
     $.ajax({
@@ -55,21 +56,37 @@ const viewData = (records) => {
 
 $(() => {
     $('#btnFirts').click(() => {
-      viewData(offset);
+      viewData(offset=0);
       offset+=20;
     });
 });
 
 $(() => {
     $('#btnFirstPage').click(() => {
-      viewData(offset);
+      viewData(offset=0);
       offset+=20;
     });
 });
 
 $(() => {
-    $('#btnLastPage').click(() => {
-      viewData(offsetTop);
-      offsetTop+=160;
+    $('#btnPreviousPage').click(() => {
+      viewData(offset-20);
+      offset-=20
     });
+});
+
+$(() => {
+    $('#btnNextPage').click(() => {
+      viewData(offset+20);
+      offset+=20
+    });
+
+});
+
+$(() => {
+    $('#btnLastPage').click(() => {
+      viewData(limit=160);
+      limit=20
+    });
+
 });
